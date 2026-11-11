@@ -1,0 +1,34 @@
+name: 错误反馈
+description: 报告安装或使用中遇到的问题
+body:
+  - type: markdown
+    attributes:
+      value: 请先移除账号、令牌、私人文件内容和其他不想公开的信息；Issues 默认是公开的。
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 使用的浏览器
+      options:
+        - Google Chrome
+        - Microsoft Edge
+        - Tabbit
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 浏览器和插件版本
+      placeholder: 浏览器版本、插件版本
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 操作步骤和实际结果
+      description: 你做了什么、预期是什么、实际发生了什么？
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 如有脱敏后的状态提示或错误信息，可以粘贴在这里。

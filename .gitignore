@@ -1,0 +1,7 @@
+host/config.json
+host/native-host.json
+host/job-ledger/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "校园 AI 本地助手",
+  "version": "0.6.2",
+  "description": "让校园 AI 自动使用本机文件与 PowerShell。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "nativeMessaging",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://ai.cuhk.edu.cn/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ai.cuhk.edu.cn/chat/*"],
+      "js": ["bridge-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://ai.cuhk.edu.cn/chat/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5l7JUKFQ+ylQ2XK+BCZjuQ8nEI1xrLrinhsLajSQT0EQnERphZyeTHdw18CGgwDl528h8pxsZ5qLF74DSVDArritJ3QStfqdX72Jr7ZqGh41VIVnpk9th8CJ78UU9M4kCcFD7jKHvsQwVkpPTbJqeE8vdIOFohia1iMHxCYujONbdjgpsIbSBfb/BZJZH/NUClhDyBBxopgrMnOJhDvHFe8SHNsAKVKG65+tvX5f7PxuMzqrnYXKDWhiX/5bJK2n4euwvN+Q60GfsUMLLHfevu5M+v8Krv+YEu/0wd3SnIxC8uPzs+ruV+Rf6wjSAmn9BBdscVDxZYLPfKQZcj0aKwIDAQAB"
+}
