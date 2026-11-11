@@ -26,6 +26,8 @@ patterns = {
 for item in root.rglob('*'):
     if not item.is_file() or '.git' in item.parts or '__pycache__' in item.parts:
         continue
+    if item.suffix.lower() == '.png':
+        continue
     text = item.read_text(encoding='utf-8-sig')
     for description, pattern in patterns.items():
         assert not pattern.search(text), f'{item.relative_to(root)} 包含疑似{description}。'
